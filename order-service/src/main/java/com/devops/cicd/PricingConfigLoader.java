@@ -1,5 +1,7 @@
 package com.devops.cicd;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.UncheckedIOException;
 import java.util.Properties;
 
 public class PricingConfigLoader {
@@ -16,8 +18,8 @@ public class PricingConfigLoader {
 
             props.load(is);
 
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to load app.properties", e);
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to load app.properties", e);
         }
 
         double vatRatePercent = Double.parseDouble(required(props, "vatRate"));

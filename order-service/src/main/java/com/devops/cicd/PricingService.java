@@ -18,10 +18,12 @@ public class PricingService {
     }
 
     public double shippingCost(double amount) {
-        if(amount >= this.config.getFreeShippingThreshold()){
-            return 0;
-        }else{
-            return 4.99;
+        {
+            if (amount >= this.config.getFreeShippingThreshold()) {
+                return 0;
+            } else {
+                return 4.99;
+            }
         }
     }
 
