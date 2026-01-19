@@ -28,6 +28,14 @@ jobs:
       run:
         working-directory: order-service
     steps:
+      - name: Checkout
+        run:  actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@V4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: "maven"
       - name: Run quality
         run: mvn verify -DskipTests
   integration-tests:
