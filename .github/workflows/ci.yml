@@ -7,6 +7,9 @@ on:
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: order-service
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,6 +26,9 @@ jobs:
   integration-tests:
     runs-on: ubuntu-latest
     needs: unit-tests
+    defaults:
+      run:
+        working-directory: order-service
     steps:
       - name: Checkout
         uses: actions/checkout@v4
